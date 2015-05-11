@@ -172,11 +172,12 @@ begin
         
         A4((iterat+1)*32-1 downto iterat*32) := A;
         B4((iterat+1)*32-1 downto iterat*32) := B;
-        S4((iterat+1)*32-1 downto iterat*32) := S;
-        A1 <= A4;
-        A2 <= B4;
+        S4((iterat+1)*32-1 downto iterat*32) := S;   
         
     end loop;
+    
+    A1 <= A4;
+    A2 <= B4;
     
     if (c = 1) then
         SP := S4;
@@ -215,14 +216,16 @@ begin
             write(line_out, " -> ");
             hwrite(line_out, S, RIGHT,9);
             writeline(OUTPUT,line_out);       
-        
+            
             A4((iterat+1)*32-1 downto iterat*32) := A;
             B4((iterat+1)*32-1 downto iterat*32) := B;
             S4((iterat+1)*32-1 downto iterat*32) := S;
-            A1 <= A4;
-            A2 <= B4;
             
         end loop;
+        
+        clk <= '1'; wait for 5 ns; clk <= '0'; wait for 5 ns;
+        A1 <= A4;
+        A2 <= B4;
     end if;
     
     clk <= '1'; wait for 5 ns; clk <= '0'; wait for 5 ns;
