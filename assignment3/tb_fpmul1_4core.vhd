@@ -155,18 +155,18 @@ begin
         assert good report "Text I/O read error" severity ERROR;
         
         if F(iterat) = '1' then
-            write(line_out, "  EN - ( ");
+            write(line_out, string'("  EN - ( "));
         else
-            write(line_out, " DIS - ( ");
+            write(line_out, string'(" DIS - ( "));
         end if;
         write(line_out, c);
-        write(line_out, " | ");
+        write(line_out, string'(" | "));
         write(line_out, iterat);
-        write(line_out, " ) - ");
+        write(line_out, string'(" ) - "));
         hwrite(line_out, A, RIGHT,9);
-        write(line_out, " * ");
+        write(line_out, string'(" * "));
         hwrite(line_out, B, RIGHT,9);
-        write(line_out, " -> ");
+        write(line_out, string'(" -> "));
         hwrite(line_out, S, RIGHT,9);
         writeline(OUTPUT,line_out);       
         
@@ -202,18 +202,18 @@ begin
             assert good report "Text I/O read error" severity ERROR;
             
             if F(iterat) = '1' then
-                write(line_out, "  EN - ( ");
+                write(line_out, string'("  EN - ( "));
             else
-                write(line_out, " DIS - ( ");
+                write(line_out, string'(" DIS - ( "));
             end if;
             write(line_out, c);
-            write(line_out, " | ");
+            write(line_out, string'(" | "));
             write(line_out, iterat);
-            write(line_out, " ) - ");
+            write(line_out, string'(" ) - "));
             hwrite(line_out, A, RIGHT,9);
-            write(line_out, " * ");
+            write(line_out, string'(" * "));
             hwrite(line_out, B, RIGHT,9);
-            write(line_out, " -> ");
+            write(line_out, string'(" -> "));
             hwrite(line_out, S, RIGHT,9);
             writeline(OUTPUT,line_out);       
             
